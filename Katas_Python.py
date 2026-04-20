@@ -164,4 +164,68 @@ try:
 except ListaVaciaError as e:
     print(f"Error: {e}")
 
+# 11. Escribe un programa que pida al usuario que introduzca su edad. Si el usuario ingresa un valor no numérico o un
+# valor fuera del rango esperado (por ejemplo, menor que 0 o mayor que 120), maneja las excepciones adecuadamente.    
+
+while True:
+    try:
+        entrada = input("Introduce tu edad: ")
+        edad = int(entrada)
+
+        if edad < 0 or edad > 120:
+            raise ValueError("Edad fuera de rango")
+
+        print(f"Tu edad es: {edad}")
+        break
+
+    except ValueError as e:
+        print("Error: Debes introducir un número entero válido entre 0 y 120.")
+
+# 12. Genera una función que al recibir una frase devuelva una lista con la longitud de cada palabra. Usa la función map()
+        
+def longitudes_palabras(frase):
+    palabras = frase.split()
+    return list(map(len, palabras))
+
+texto = "Buenos dias"
+longitud = longitudes_palabras(texto)
+print(longitud)
+
+# 13. Genera una función la cual, para un conjunto de caracteres, devuelva una lista de tuplas con cada letra en
+# mayúsculas y minúsculas. Las letras no pueden estar repetidas .Usa la función map()
+
+def letras_mayus_minus(caracteres):
+    letras = map(str.lower, filter(str.isalpha, caracteres))
+
+    unicos = set(letras)
+       
+    resultado = list(map(lambda c: (c.upper(), c.lower()), unicos))
     
+    return resultado
+
+letras1 = "AabBCcDe"
+print(letras_mayus_minus(letras1))
+
+# 14. Crea una función que retorne las palabras de una lista de palabras que comience con una letra en especifico. Usa la función filter()
+
+def filtrar_por_letra(palabras, letra):
+    
+    letra = letra.lower()
+    
+    return list(filter(lambda palabra: palabra.lower().startswith(letra), palabras))
+
+animales = ["perro", "Gato", "oso", "periquito", "pez"]
+letra_p = filtrar_por_letra(animales, "p")
+print(letra_p)
+
+# 15. Crea una función lambda que sume 3 a cada número de una lista dada.
+
+def sumar_tres(lista):
+    return list(map(lambda x: x + 3, lista))
+
+numeros = [2, 3, 5, 8]
+suma1 = sumar_tres(numeros)
+print(suma1)
+
+
+
