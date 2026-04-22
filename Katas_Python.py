@@ -227,5 +227,77 @@ numeros = [2, 3, 5, 8]
 suma1 = sumar_tres(numeros)
 print(suma1)
 
+# 16. Escribe una función que tome una cadena de texto y un número entero n como parámetros y devuelva una lista de
+# todas las palabras que sean más largas que n. Usa la función filter()
 
+def palabras_mas_largas(texto, n):
+    palabras = texto.split()
+    return list(filter(lambda palabra: len(palabra) > n, palabras))
 
+ejemplo1 = "Todos los días salgo con mi perra"
+palabras1 = palabras_mas_largas(ejemplo1, 4)
+print(palabras1)
+
+# 17. Crea una función que tome una lista de dígitos y devuelva el número correspondiente. Por ejemplo, [5,7,2]
+# corresponde al número quinientos setenta y dos (572). Usa la función reduce()
+
+from functools import reduce
+
+def lista_a_numero(digitos):
+    return reduce(lambda acc, d: acc * 10 + d, digitos, 0)
+
+print(lista_a_numero([5, 7, 2]))
+
+# 18. Escribe un programa en Python que cree una lista de diccionarios que contenga información de estudiantes
+# (nombre, edad, calificación) y use la función filter para extraer a los estudiantes con una calificación mayor o igual a
+# 90. Usa la función filter()
+
+def estudiantes_destacados(estudiantes):
+    return list(filter(lambda e: e["calificacion"] >= 90, estudiantes))
+
+estudiantes = [
+    {"nombre": "Ana", "edad": 30, "calificacion": 98},
+    {"nombre": "Luis", "edad": 22, "calificacion": 80},
+    {"nombre": "Marta", "edad": 40, "calificacion": 90},
+    {"nombre": "Carlos", "edad": 51, "calificacion": 78},
+    {"nombre": "Elena", "edad": 20, "calificacion": 92},
+
+destacados = estudiantes_destacados(estudiantes)
+
+for e in destacados:
+    print(e)
+
+# 19. Crea una función lambda que filtre los números impares de una lista dada.
+ 
+numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+impares = list(filter(lambda x: x % 2 != 0, numeros))
+
+print(impares)
+
+# 20. Para una lista con elementos tipo integer y string obtén una nueva lista sólo con los valores int. Usa la función filter()
+
+datos = [2, "hola", 3, "perro", 6, 9.5, "casa", 30]
+
+solo_enteros = list(filter(lambda x: isinstance(x, int), datos))
+
+print(solo_enteros)
+
+# 21. Crea una función que calcule el cubo de un número dado mediante una función lambda
+
+def cubo(numero):
+    f = lambda x: x ** 3
+    return f(numero)
+    
+print(cubo(6))
+
+# 22. Dada una lista numérica, obtén el producto total de los valores de dicha lista. Usa la función reduce() .
+
+from functools import reduce
+
+def producto_total(lista):
+    return reduce(lambda acc, x: acc * x, lista, 1)
+
+numeros = [2, 5, 8, 6]
+resultado = producto_total(numeros)
+print(resultado)    
