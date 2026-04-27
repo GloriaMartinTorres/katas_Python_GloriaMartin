@@ -416,6 +416,7 @@ def buscar_nombre():
     except ValueError as e:
         print("Error:", e)
 
+# Ejecutar la función:
 buscar_nombre()
 
 # 32. Crea una función que tome un nombre completo y una lista de empleados, busque el nombre completo en la lista y
